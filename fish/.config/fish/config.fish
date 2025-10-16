@@ -1,7 +1,9 @@
 #####################################
 ##==> Variables
 #####################################
-function shenv; set -gx $argv; end
+function shenv
+    set -gx $argv
+end
 source ~/.env
 
 #####################################
@@ -25,7 +27,6 @@ alias doexec='docker exec'
 # Github
 alias ghcs='gh copilot suggest'
 alias ghce='gh copilot explain'
-
 
 #####################################
 ##==> Custom Functions
@@ -55,12 +56,6 @@ atuin init fish --disable-up-arrow | source
 zoxide init fish | source
 #oh-my-posh init fish --config https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/refs/heads/main/themes/catppuccin.omp.json | source
 set fish_greeting
-
-#####################################
-##==> Development Tools
-#####################################
-##==> Pyenv
-pyenv init - | source
 
 #TODO: Fazer verificação de instalação do flutter e ruby antes
 # Flutter

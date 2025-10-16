@@ -1,0 +1,236 @@
+# Para gerar ascii https://fsymbols.com/generators/carty/
+format = """\
+[╭╴](fg:mauve)\
+$username\
+$os\
+$git_branch\
+$git_status\
+$git_state\
+(\
+    at \
+    $directory\
+)\
+$fill $cmd_duration $time \
+(\
+    via\
+    $python\
+    $conda\
+    $nodejs\
+    $c\
+    $rust\
+    $java\
+    $php\
+)
+[╰─](fg:mauve)$character\
+"""
+# Add the modules you need
+
+# Disable the blank line at the start of the prompt
+add_newline = true
+
+palette = "normal"
+
+
+[username]
+style_user = 'bold mauve'
+style_root = 'bold red'
+format = '[  $user](fg:$style) '
+disabled = false
+show_always = true
+
+[os]
+format = "on [($name)]($style) "
+style = "bold blue"
+disabled = true
+
+[os.symbols]
+Alpine = " "
+Arch = " "
+Debian = " "
+EndeavourOS = " "
+Fedora = " "
+Linux = " "
+Macos = " "
+Manjaro = " "
+Mint = " "
+NixOS = " "
+openSUSE = " "
+Pop = " "
+SUSE = " "
+Ubuntu = " "
+Windows = " "
+
+[directory]
+format = "[$path](bold $style)[$read_only]($read_only_style) "
+truncation_length = 2
+style = "fg:lavender"
+read_only_style = "fg:lavender"
+before_repo_root_style = "fg:lavender"
+truncation_symbol = "…/"
+truncate_to_repo = true
+read_only ="  "
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = "󰝚 "
+"Pictures" = " "
+"Developer" = "󰲋 "
+
+[time]
+disabled = false
+format = "[󱑈 $time]($style)"
+time_format = "%H:%M"
+style = "bold fg:time"
+
+[cmd_duration]
+disabled = false
+format = "took [ $duration]($style) "
+style = "bold fg:duration"
+min_time = 500
+
+[git_branch]
+format = "via [$symbol$branch]($style) "
+style = "bold fg:git"
+symbol = " "
+
+[git_status]
+format = '[($all_status$ahead_behind )]($style)'
+style = "fg:git"
+disabled = false
+
+[git_state]
+style = "fg:git"
+
+[character]
+success_symbol = "[󰍟](fg:mauve)"
+error_symbol = "[󰍟](fg:red)"
+
+[package]
+disabled=false
+
+[fill]
+symbol = " "
+
+# █░░ ▄▀█ █▄░█ █▀▀ █░█ ▄▀█ █▀▀ █▀▀ █▀
+# █▄▄ █▀█ █░▀█ █▄█ █▄█ █▀█ █▄█ ██▄ ▄█
+[nodejs]
+format = "[ $symbol$version ]($style)"
+style = "fg:node"
+symbol = " "
+version_format = "${raw}"
+disabled=false
+
+[python]
+disabled=false
+format = '[ ${symbol}${pyenv_prefix}(${version})( \($virtualenv\)) ]($style)'
+symbol = " "
+version_format = "${raw}"
+style = "fg:python"
+
+[conda]
+format = "[ $symbol$environment ]($style)"
+style = "fg:conda"
+ignore_base = false
+disabled = false
+symbol = " "
+
+[java]
+format = "[ $symbol$version ]($style)"
+style = "fg:java"
+version_format = "${raw}"
+symbol = " "
+disabled = false
+
+[c]
+format = "[ $symbol($version(-$name)) ]($style)"
+style = "fg:clang"
+symbol = " "
+version_format = "${raw}"
+disabled=false
+
+[rust]
+format ="[ $symbol$version ]($style)"
+style = "fg:rust"
+symbol = " "
+version_format = "${raw}"
+disabled=false
+
+[php]
+symbol = ""
+style = "fg:php"
+format ="[ $symbol$version ]($style)"
+version_format = "${raw}"
+disabled=false
+
+[golang]
+symbol = ""
+style = "fg:golang"
+format ="[ $symbol$version ]($style)"
+version_format = "${raw}"
+disabled=false
+
+[kotlin]
+symbol = ""
+style = "fg:kotlin"
+format ="[ $symbol$version ]($style)"
+version_format = "${raw}"
+disabled=false
+
+[haskell]
+symbol = ""
+style = "fg:haskell"
+format ="[ $symbol$version ]($style)"
+version_format = "${raw}"
+disabled=false
+
+[docker_context]
+disabled=false
+symbol = " "
+
+# █▀█ ▄▀█ █░░ █▀▀ ▀█▀ ▀█▀ █▀▀ █▀
+# █▀▀ █▀█ █▄▄ ██▄ ░█░ ░█░ ██▄ ▄█
+[palettes.normal]
+time = "#B3BCFD"
+node = "#a5e6ba"
+git = "#f17f29"
+git_status = "#DFEBED"
+python = "#f9e2af"
+conda = "#70e000"
+java = "#f38ba8"
+rust = "#fab387"
+clang = "#89b4fa"
+php = "##89b4fa"
+golang = "#74c7ec"
+kotlin = "#cba6f7"
+haskell = "#cba6f7"
+duration = "#ce4257"
+text_color = "#EDF2F4"
+text_light = "#26272A"
+rosewater = "#f5e0dc"
+flamingo = "#f2cdcd"
+pink = "#f5c2e7"
+mauve = "#cba6f7"
+red = "#f38ba8"
+maroon = "#eba0ac"
+peach = "#fab387"
+yellow = "#f9e2af"
+green = "#a6e3a1"
+teal = "#94e2d5"
+sky = "#89dceb"
+sapphire = "#74c7ec"
+blue = "#89b4fa"
+lavender = "#b4befe"
+text = "#cdd6f4"
+subtext1 = "#bac2de"
+subtext0 = "#a6adc8"
+overlay2 = "#9399b2"
+overlay1 = "#7f849c"
+overlay0 = "#6c7086"
+surface2 = "#585b70"
+surface1 = "#45475a"
+surface0 = "#313244"
+base = "#1e1e2e"
+mantle = "#181825"
+crust = "#11111b"
+

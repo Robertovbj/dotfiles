@@ -1,0 +1,39 @@
+[user]
+	email = roberto.rvbj@gmail.com
+	name = Roberto Barbosa
+[init]
+	defaultBranch = master
+[pull]
+	rebase = false
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[alias]
+	st = status
+	co = checkout
+	cob = checkout -b
+	lg = log --all --graph --decorate --oneline --abbrev-commit
+	c = commit
+	cm = commit -m
+	a = add
+	po = push -u origin
+	pfl = push --force-with-lease
+	pl = pull
+	df = diff
+	ac = !git add -A && git commit -m
+	sync = !git pull && git push
+	branches = branch -a
+	amend = commit --amend
+	untrack = rm --cached
+	unadd = restore --staged
+	# list all defined aliases
+	aliases = config --get-regexp alias
+	# List all commits (on this branch) made by me
+	mycommits = log --author=\".*[Jj]an\\s*[Kk]rag.*\"
+	# Checkout to target branch and then executes bclean
+	bdone = "!f() { git checkout ${1-master} && git pull --rebase && git bclean ${1-master}; }; f"
+	# Deletes all branches that have already been merged into the target branch. If no target branch is specified, then it assumes the main branch.
+	bclean = "!f() { DEFAULT=$(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'); BRANCH=${1:-$DEFAULT}; git branch --merged $BRANCH | grep -v \"^[ *]*$BRANCH$\" | xargs -r git branch -d; git remote prune origin; }; f"
+	last = log -1 HEAD --stat

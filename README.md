@@ -45,7 +45,8 @@
         visual-studio-code-bin \
         wine \
         zoxide \
-        fcitx5 fcitx5-qt fcitx5-gtk fcitx5-configtool
+        fcitx5 fcitx5-qt fcitx5-gtk fcitx5-configtool \
+        rofi rofiemoji  # Emojis 
     #   pidgin pidgin-indicator pidgin-libnotify \  # Pidgin
     #   cups system-config-printer ghostscript \  # Impressora
     ```

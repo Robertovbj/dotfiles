@@ -6,6 +6,14 @@ function shenv
 end
 source ~/.env
 
+# SSH Agent - fixed socket via systemd user service
+set -gx SSH_AUTH_SOCK /run/user/1000/ssh-agent.socket
+
+# Add key if not already added (only in interactive sessions)
+if status is-interactive
+    ssh-add -l &>/dev/null; or ssh-add ~/.ssh/id_ed25519
+end
+
 #####################################
 ##==> Aliases
 #####################################

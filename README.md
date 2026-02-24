@@ -27,6 +27,7 @@
         lazygit \  # Gerenciador git
         less \  # Conseguir fazer scroll no terminal
         lshw \  # Informações do sistema
+        lvsk-calendar \  # Calendário TUI
         meson \
         microsoft-edge-stable-bin \  # Edge
         neovim \  # nvim

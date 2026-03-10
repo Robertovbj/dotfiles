@@ -15,28 +15,6 @@ if status is-interactive
 end
 
 #####################################
-##==> Aliases
-#####################################
-alias cls="clear"
-alias g="git"
-alias n="nvim"
-alias m="micro"
-alias t="task"
-alias cd="z"
-
-# Docker
-alias docp='docker compose'
-alias docpd='docker compose down'
-alias dops='docker ps'
-alias docpub='docker compose up -d --build'
-alias doexecit='docker exec -it'
-alias doexec='docker exec'
-
-# Github
-alias ghcs='gh copilot suggest'
-alias ghce='gh copilot explain'
-
-#####################################
 ##==> Custom Functions
 #####################################
 function wget
@@ -58,24 +36,32 @@ end
 #####################################
 ##==> Shell Customization
 #####################################
-starship init fish | source
-fzf --fish | FZF_CTRL_R_COMMAND= source
-atuin init fish --disable-up-arrow | source
-zoxide init fish | source
-#oh-my-posh init fish --config https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/refs/heads/main/themes/catppuccin.omp.json | source
+if command -q zoxide
+    zoxide init fish --cmd cd | source
+end
+
+if command -q atuin
+    atuin init fish --disable-up-arrow | source
+end
+
+if command -q starship
+    starship init fish | source
+end
+
+# FZF Theme
+if command -q fzf
+    fzf --fish | FZF_CTRL_R_COMMAND= source
+
+    set -Ux FZF_DEFAULT_OPTS "\
+            --color=bg+:#313244,bg:#1E1E2E,spinner:#F5E0DC,hl:#F38BA8 \
+            --color=fg:#CDD6F4,header:#F38BA8,info:#CBA6F7,pointer:#F5E0DC \
+            --color=marker:#B4BEFE,fg+:#CDD6F4,prompt:#CBA6F7,hl+:#F38BA8 \
+            --color=selected-bg:#45475A \
+            --color=border:#313244,label:#CDD6F4"
+    set -g FZF_CTRL_T_COMMAND "command find -L \$dir -type f 2> /dev/null | sed '1d; s#^\./##'"
+end
+
 set fish_greeting
-
-#TODO: Fazer verificação de instalação do flutter e ruby antes
-# Flutter
-#set -Ua fish_user_paths $HOME/.flutter/flutter/bin
-#set -Ux ANDROID_SDK_ROOT /opt/android-sdk
-#set -Ua fish_user_paths $ANDROID_SDK_ROOT/cmdline-tools/latest/bin
-#set -Ua fish_user_paths $ANDROID_SDK_ROOT/platform-tools
-#set -Ua fish_user_paths $ANDROID_SDK_ROOT/emulator
-
-# Ruby
-#set -x PATH $HOME/.rbenv/bin $PATH
-#status --is-interactive; and source (rbenv init -|psub)
 
 #####################################
 ##==> Fun Stuff

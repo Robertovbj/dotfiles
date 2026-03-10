@@ -40,3 +40,8 @@ abbr -a ghce 'gh copilot explain'
 
 # Tools
 abbr -a c copilot
+
+# Kitty
+if status is-interactive
+    [ "$TERM" = xterm-kitty ] && alias ssh="kitty +kitten ssh"
+end

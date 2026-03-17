@@ -1,4 +1,4 @@
-1. Instalar yay (Caso necessário)
+1. Instalar yay (Caso necessÃ¡rio)
     ```bash
     sudo pacman -S --needed git base-devel
     git clone https://aur.archlinux.org/yay.git
@@ -9,7 +9,7 @@
 2. Instalar pacotes
     ```bash
     yay -Syu \
-        atuin \  # Histórico terminal
+        atuin \  # HistÃ³rico terminal
         base-devel \
         cargo \
         deskflow \
@@ -26,8 +26,8 @@
         lazydocker \  # Gerenciador docker
         lazygit \  # Gerenciador git
         less \  # Conseguir fazer scroll no terminal
-        lshw \  # Informações do sistema
-        lvsk-calendar \  # Calendário TUI
+        lshw \  # InformaÃ§oes do sistema
+        lvsk-calendar \  # CalendÃ¡rio TUI
         meson \
         microsoft-edge-stable-bin \  # Edge
         neovim \  # nvim
@@ -39,7 +39,7 @@
         openssh-server \
         ripgrep \
         screen \
-        starship \  # Customização de terminal
+        starship \  # CustomizaÃ§Ã£o de terminal
         stow \  # Para dotfiles
         task taskwarrior-tui \  # Tarefas
         tree-sitter-cli \
@@ -60,11 +60,13 @@
     - starship
     - waybar
 
-4. Alterar o swap
+4. Mudar o shell para fish com `chsh -s /usr/bin/fish` e para o sudo `sudo chsh -s /bin/fish`
+
+5. Alterar o swap
     ```bash
     echo "[zram0]" sudo >/etc/systemd/zram-generator.conf
     echo "zram-size = ram * 4" sudo >>/etc/systemd/zram-generator.conf
     echo "compression-algorithm = zstd" sudo >>/etc/systemd/zram-generator.conf
     ```
 
-5. [Opcional] (Corrigir cedilha)[https://www.reddit.com/r/archlinux/comments/1fceq7p/cedilla_not_working_as_intended/]
+6. [Opcional] (Corrigir cedilha)[https://www.reddit.com/r/archlinux/comments/1fceq7p/cedilla_not_working_as_intended/]

@@ -40,3 +40,6 @@
 [core]
 	autocrlf = input
 	safecrlf = warn
+[credential "http://192.168.0.200:3000"]
+	helper = 
+	helper = !tea login helper

@@ -34,12 +34,9 @@ abbr -a gcm 'git commit -m'
 abbr -a gcam 'git commit -a -m'
 abbr -a gcad 'git commit -a --amend'
 
-# Github
-abbr -a ghcs 'gh copilot suggest'
-abbr -a ghce 'gh copilot explain'
-
 # Tools
-abbr -a c copilot
+abbr -a c opencode
+abbr -a cx 'printf "\033[2J\033[3J\033[H" && claude --permission-mode bypassPermissions'
 
 # Kitty
 if status is-interactive

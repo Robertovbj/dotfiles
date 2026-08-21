@@ -10,6 +10,7 @@ source ~/.env
 set -gx SSH_AUTH_SOCK /run/user/1000/ssh-agent.socket
 
 set PATH $PATH /home/administrador/.local/bin
+fish_add_path ~/bin
 
 if status is-interactive
     ssh-add -l &>/dev/null; or ssh-add ~/.ssh/id_ed25519

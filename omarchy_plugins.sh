@@ -1,0 +1,17 @@
+
+# Gerenciador Plugins
+omarchy plugin add https://github.com/fross100/omaplug.git --enable 
+# YT Music
+omarchy plugin add https://github.com/levyvix/omarchy-youtube-music.git --enable
+# Notifications
+omarchy plugin add https://github.com/jankeesvw/omarchy-notification-center.git --enable
+# Sync Theme on GTK and QT
+omarchy plugin add https://github.com/vonsensey/accord --enable
+# Hides Plugins on bar
+omarchy plugin add https://github.com/nightdevil00/plugin.hider.git --enable
+# Whatsapp
+omarchy plugin add https://github.com/srineshr1/omarchy-whatsapp.git --enable
+# Try
+omarchy plugin add https://github.com/guillechuma/trystation.git --enable
+# Equalizer
+omarchy plugin add https://github.com/ParvvOK/equalizer.git --enable

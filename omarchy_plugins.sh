@@ -14,4 +14,4 @@ omarchy plugin add https://github.com/srineshr1/omarchy-whatsapp.git --enable
 # Try
 omarchy plugin add https://github.com/guillechuma/trystation.git --enable
 # Equalizer
-omarchy plugin add https://github.com/ParvvOK/equalizer.git --enable
+omarchy plugin add https://github.com/prudhviy99/omarchy-parametric-eq.git --enable

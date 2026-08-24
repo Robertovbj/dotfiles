@@ -8,7 +8,7 @@ omarchy plugin add https://github.com/jankeesvw/omarchy-notification-center.git 
 # Sync Theme on GTK and QT
 omarchy plugin add https://github.com/vonsensey/accord --enable
 # Hides Plugins on bar
-omarchy plugin add https://github.com/nightdevil00/plugin.hider.git --enable
+omarchy plugin add https://github.com/ESHAYAT102/hide-icons-omarchy-plugin.git --enable
 # Whatsapp
 omarchy plugin add https://github.com/srineshr1/omarchy-whatsapp.git --enable
 # Try

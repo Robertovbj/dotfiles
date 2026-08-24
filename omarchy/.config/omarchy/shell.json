@@ -1,0 +1,95 @@
+{
+  "version": 1,
+  "idle": {
+    "screensaver": 150,
+    "lock": 300
+  },
+  "bar": {
+    "position": "top",
+    "transparent": false,
+    "centerAnchor": "omarchy.clock",
+    "layout": {
+      "left": [
+        {
+          "id": "omarchy.menu"
+        },
+        {
+          "id": "omarchy.workspaces"
+        }
+      ],
+      "center": [
+        {
+          "id": "omarchy.indicators"
+        },
+        {
+          "id": "omarchy.clock",
+          "format": "ddd d MMM HH:mm",
+          "formatAlt": "d MMMM 'W'ww yyyy",
+          "verticalFormat": "HH\n—\nmm"
+        },
+        {
+          "id": "omarchy.keyboard-layout"
+        },
+        {
+          "id": "omarchy.weather"
+        },
+        {
+          "id": "omarchy.system-update"
+        }
+      ],
+      "right": [
+        {
+          "id": "omarchy.tray"
+        },
+        {
+          "id": "io.github.ricky.whatsapp"
+        },
+        {
+          "id": "levi.youtube-music"
+        },
+        {
+          "id": "omarchy.agents"
+        },
+        {
+          "id": "omarchy.bluetooth"
+        },
+        {
+          "id": "omarchy.network"
+        },
+        {
+          "id": "omarchy.audio"
+        },
+        {
+          "id": "io.github.prudhviy99.parametric-eq"
+        },
+        {
+          "id": "omarchy.monitor"
+        },
+        {
+          "id": "omarchy.power"
+        },
+        {
+          "id": "jankeesvw.notification-center"
+        },
+        {
+          "id": "omaplug"
+        },
+        {
+          "id": "io.github.guillechuma.trystation"
+        },
+        {
+          "id": "esh.hide-icons",
+          "items": [
+            "omaplug",
+            "io.github.prudhviy99.parametric-eq",
+            "io.github.guillechuma.trystation",
+            "levi.youtube-music",
+            "omarchy.monitor",
+            "omarchy.agents"
+          ]
+        }
+      ]
+    }
+  },
+  "plugins": []
+}

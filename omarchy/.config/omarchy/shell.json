@@ -6,7 +6,7 @@
   },
   "bar": {
     "position": "top",
-    "transparent": false,
+    "transparent": true,
     "centerAnchor": "omarchy.clock",
     "layout": {
       "left": [
@@ -40,6 +40,9 @@
       "right": [
         {
           "id": "omarchy.tray"
+        },
+        {
+          "id": "io.github.tahler.eye-twenty"
         },
         {
           "id": "io.github.ricky.whatsapp"

@@ -42,31 +42,13 @@
           "id": "omarchy.tray"
         },
         {
-          "id": "io.github.tahler.eye-twenty"
-        },
-        {
-          "id": "io.github.ricky.whatsapp"
-        },
-        {
           "id": "levi.youtube-music"
-        },
-        {
-          "id": "omarchy.agents"
         },
         {
           "id": "omarchy.bluetooth"
         },
         {
-          "id": "omarchy.network"
-        },
-        {
           "id": "omarchy.audio"
-        },
-        {
-          "id": "io.github.prudhviy99.parametric-eq"
-        },
-        {
-          "id": "omarchy.monitor"
         },
         {
           "id": "omarchy.power"
@@ -75,21 +57,26 @@
           "id": "jankeesvw.notification-center"
         },
         {
+          "id": "omarchy.monitor"
+        },
+        {
+          "id": "io.github.prudhviy99.parametric-eq"
+        },
+        {
+          "id": "omarchy.network"
+        },
+        {
           "id": "omaplug"
+        },
+        {
+          "id": "omarchy.agents"
         },
         {
           "id": "io.github.guillechuma.trystation"
         },
         {
-          "id": "esh.hide-icons",
-          "items": [
-            "omaplug",
-            "io.github.prudhviy99.parametric-eq",
-            "io.github.guillechuma.trystation",
-            "levi.youtube-music",
-            "omarchy.monitor",
-            "omarchy.agents"
-          ]
+          "id": "jrmmhm.pocket",
+          "members": "omarchy.monitor, io.github.prudhviy99.parametric-eq, omarchy.network, omaplug, omarchy.agents, io.github.guillechuma.trystation"
         }
       ]
     }

@@ -24,3 +24,10 @@ if command -q fzf
             --color=border:#313244,label:#CDD6F4"
     set -g FZF_CTRL_T_COMMAND "command find -L \$dir -type f 2> /dev/null | sed '1d; s#^\./##'"
 end
+
+if command -q try
+    # ~/.local/try.rb init | source
+    # try init ~/src/tries | source
+    SHELL=(command -s fish) try init ~/Work/tries | source
+end
+

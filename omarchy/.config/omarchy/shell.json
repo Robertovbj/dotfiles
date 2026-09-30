@@ -42,7 +42,7 @@
           "id": "omarchy.tray"
         },
         {
-          "id": "dorneles.omaclippy"
+          "id": "reidenxerx.omagram"
         },
         {
           "id": "levi.youtube-music"
@@ -57,6 +57,9 @@
           "id": "omarchy.power"
         },
         {
+          "id": "yoyo.notification-center"
+        },
+        {
           "id": "omarchy.monitor"
         },
         {
@@ -66,9 +69,6 @@
           "id": "omarchy.network"
         },
         {
-          "id": "omaplug"
-        },
-        {
           "id": "omarchy.agents"
         },
         {
@@ -76,7 +76,7 @@
         },
         {
           "id": "jrmmhm.pocket",
-          "members": "omarchy.monitor, io.github.prudhviy99.parametric-eq, omarchy.network, omaplug, omarchy.agents, io.github.guillechuma.trystation"
+          "members": "yoyo.notification-center, omarchy.monitor, io.github.prudhviy99.parametric-eq, omarchy.network, omarchy.agents, io.github.guillechuma.trystation, omaplug"
         }
       ]
     }

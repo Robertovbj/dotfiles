@@ -34,8 +34,8 @@
 	mycommits = log --author=\".*[Jj]an\\s*[Kk]rag.*\"
 	# Checkout to target branch and then executes bclean
 	bdone = "!f() { git checkout ${1-master} && git pull --rebase && git bclean ${1-master}; }; f"
-	# Deletes all branches that have already been merged into the target branch. If no target branch is specified, then it assumes the main branch.
-	bclean = "!f() { DEFAULT=$(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'); BRANCH=${1:-$DEFAULT}; git branch --merged $BRANCH | grep -v \"^[ *]*$BRANCH$\" | xargs -r git branch -d; git remote prune origin; }; f"
+	# Deletes branches already merged into the target branch, prunes stale remote refs, and deletes local branches whose upstream is gone (e.g. squash-merged PRs). If no target branch is specified, then it assumes the main branch.
+	bclean = "!f() { DEFAULT=$(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'); BRANCH=${1:-$DEFAULT}; git branch --merged $BRANCH | grep -v \"^[ *]*$BRANCH$\" | xargs -r git branch -d; git remote prune origin; git branch -vv | awk -v cur=\"$BRANCH\" '/: gone]/ { b=$1; if (b==\"*\") b=$2; if (b!=cur) print b }' | xargs -r git branch -D; }; f"
 	last = log -1 HEAD --stat
 [core]
 	autocrlf = input

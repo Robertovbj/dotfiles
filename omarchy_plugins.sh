@@ -7,5 +7,3 @@ omarchy plugin add https://github.com/Loafer19/omarchy-yet-another-notification-
 omarchy plugin add https://github.com/ESHAYAT102/hide-icons-omarchy-plugin.git --enable
 # Try
 omarchy plugin add https://github.com/guillechuma/trystation.git --enable
-# Equalizer
-omarchy plugin add https://github.com/prudhviy99/omarchy-parametric-eq.git --enable

@@ -85,6 +85,8 @@ hl.unbind("SUPER + SHIFT + G")
 -- Google Messages
 hl.unbind("SUPER + SHIFT + CTRL + G")
 
+-- Whatsapp
+hl.unbind("SUPER + SHIFT + ALT + G") -- Whatsapp webapp
 -- ============================ BINDS
 -- KeepassXC
 o.bind("SUPER + SHIFT + SLASH", "Passwords", "keepassxc")
@@ -103,3 +105,6 @@ o.bind("SUPER + SHIFT + M", "Music", { webapp = "https://music.youtube.com/", fo
 
 -- Lazygit
 o.bind("SUPER + SHIFT + G", "Lazygit", "lazygit")
+
+-- ZapFast
+o.bind("SUPER + SHIFT + ALT + G", "ZapFast", "zapfast")

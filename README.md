@@ -38,6 +38,7 @@
         openssh \
         openssh-server \
         ripgrep \
+        ruby ruby-bundler \  # Ruby e Bundler (necessário para o Ruby LSP)
         screen \
         starship \  # Customização de terminal
         stow \  # Para dotfiles
@@ -54,6 +55,7 @@
 
 3. Fazer o stow (`stow -t /home/$USER`) dos seguintes :
     - atuin
+    - environment
     - fish
     - hyprland
     - kitty

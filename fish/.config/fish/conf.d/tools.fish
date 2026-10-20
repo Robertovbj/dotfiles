@@ -30,5 +30,16 @@ if status is-interactive
         # ~/.local/try.rb init | source
         # try init ~/src/tries | source
         SHELL=(command -s fish) try init ~/Work/tries | source
+
+        # try <= 1.8.1 emite um subshell POSIX "( cd A || cd B )" ao deletar,
+        # que o fish nao consegue interpretar; remove os parenteses antes do eval.
+        function try
+            set -l out (/usr/bin/env ruby (command -s try) exec --path ~/Work/tries $argv 2>/dev/tty | string replace -r '^(\s*)\( (.+) \)$' '$1$2' | string collect)
+            if test $pipestatus[1] -eq 0
+                eval $out
+            else
+                echo $out
+            end
+        end
     end
 end

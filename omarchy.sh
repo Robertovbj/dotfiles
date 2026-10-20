@@ -37,6 +37,7 @@ omarchy default terminal kitty
 # wine             - Run Windows applications
 # fzf              - Fuzzy finder
 # fd               - Fast file finder
+# zapfast          - Better Whatsapp
 
 yay -Sy \
   atuin \
@@ -57,6 +58,7 @@ yay -Sy \
   nmap \
   wine \
   fzf \
-  fd
+  fd \
+  zapfast
 
 omarchy install gaming steam

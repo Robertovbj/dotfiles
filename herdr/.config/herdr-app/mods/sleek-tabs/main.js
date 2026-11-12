@@ -1,6 +1,6 @@
 import { View, div, svg, image } from "gpui-kit";
 import { h_flex } from "gpui-base";
-import { spaces, panes, run, openOverlay, theme, window, shared, layout, settings, home } from "herdr";
+import { spaces, panes, run, openOverlay, theme, window, shared, layout, settings, home, nextCommand } from "herdr";
 
 // Personal: cards and pills follow the Cards transparency slider (my-settings).
 // a mixed toward b by k (0..1), hex colours.
@@ -50,9 +50,27 @@ function find(node, id) {
 }
 
 export default class Tabs extends View {
-  init() {
+  init(_props, cx) {
     this.pressed = null;
     this.panels = JSON.parse(localStorage.getItem("panels") ?? "{}");
+    // Local change (glass-islands): keys for the Files / Changes buttons. Opening the panel takes
+    // two commands (pick the stack child, show the panel) and a key runs one, so keys.json sends
+    // "sleek-tabs.files" / "sleek-tabs.changes" here.
+    cx.spawn(async (cx) => {
+      for (;;) {
+        const c = await nextCommand();
+        if (c === "files" || c === "changes") this.togglePanel(c);
+        cx.notify();
+      }
+    });
+  }
+
+  // Files / Changes: open that one in the side panel, or close the panel if it's already showing.
+  togglePanel(id) {
+    const root = layout(), panel = find(root, "panel"), body = find(root, "panel-body");
+    if (!panel) return;
+    if (!panel.hidden && body?.active === id) run("layout.hide", { id: "panel" });
+    else { run("layout.select", { stack: "panel-body", child: id }); run("layout.show", { id: "panel" }); }
   }
 
   // The side panel is remembered per space: switching shows that space's choice
@@ -137,10 +155,7 @@ export default class Tabs extends View {
         .when(on, s => s.bg(glass(t.selected)))
         .when(!on, s => s.hover(h => h.text_color(t.foreground)))
         .on_mouse_down("left", stop)
-        .on_click(() => {
-          if (on) run("layout.hide", { id: "panel" });
-          else { run("layout.select", { stack: "panel-body", child: id }); run("layout.show", { id: "panel" }); }
-        }).child(svg(icon).size(13).text_color(on ? t.accent : t.dim)).child(label);
+        .on_click(() => this.togglePanel(id)).child(svg(icon).size(13).text_color(on ? t.accent : t.dim)).child(label);
     };
     const panels = ["files", "changes"].filter((p) => enabled.includes(p));
     const notes = find(root, "herdsidian"), notesOn = Boolean(notes && !notes.hidden);

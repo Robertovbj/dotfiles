@@ -81,6 +81,8 @@
     "shift-insert": "terminal.paste"
   },
   "layout:glass-islands": {
-    "ctrl-shift-o": "layout.toggle:herdsidian"
+    "ctrl-shift-o": "layout.toggle:herdsidian",
+    "ctrl-shift-y": "sleek-tabs.files",
+    "ctrl-shift-g": "sleek-tabs.changes"
   }
 }

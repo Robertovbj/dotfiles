@@ -1,0 +1,93 @@
+{
+  "model": "Yuuka",
+  "width": 190,
+  "height": 247,
+  "fps": 8,
+  "frames": {
+    "working": 63,
+    "blocked": 11,
+    "done": 24,
+    "idle": 26
+  },
+  "sequences": {
+    "working": [
+      [
+        "Normal_Attack_Start",
+        0.53,
+        90.0
+      ],
+      [
+        "Normal_Attack_Ing",
+        0.6,
+        90.0
+      ],
+      [
+        "Normal_Attack_Ing",
+        0.6,
+        90.0
+      ],
+      [
+        "Normal_Attack_Ing",
+        0.6,
+        90.0
+      ],
+      [
+        "Normal_Attack_Ing",
+        0.6,
+        90.0
+      ],
+      [
+        "Normal_Attack_Ing",
+        0.6,
+        90.0
+      ],
+      [
+        "Normal_Attack_Ing",
+        0.6,
+        90.0
+      ],
+      [
+        "Normal_Attack_Ing",
+        0.6,
+        90.0
+      ],
+      [
+        "Normal_Attack_Ing",
+        0.6,
+        90.0
+      ],
+      [
+        "Normal_Attack_Ing",
+        0.6,
+        90.0
+      ],
+      [
+        "Normal_Reload",
+        1.93,
+        45.0
+      ]
+    ],
+    "blocked": [
+      [
+        "Vital_Panic",
+        1.33,
+        0.0
+      ]
+    ],
+    "done": [
+      [
+        "Victory_Start",
+        3.0,
+        0.0
+      ]
+    ],
+    "idle": [
+      [
+        "Cafe_Idle",
+        3.2,
+        0.0
+      ]
+    ]
+  },
+  "idle": "Cafe_Idle"
+}

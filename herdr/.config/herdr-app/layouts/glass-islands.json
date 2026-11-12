@@ -1,0 +1,236 @@
+{
+  "id": "root",
+  "type": "row",
+  "children": [
+    {
+      "id": "dim",
+      "type": "row",
+      "padding": 5,
+      "gap": 5,
+      "children": [
+        {
+          "id": "sidebar",
+          "type": "column",
+          "children": [
+            {
+              "id": "brand",
+              "type": "block",
+              "content": {
+                "mod": "sleek-chrome"
+              },
+              "size": {
+                "px": 46
+              },
+              "window_drag": true
+            },
+            {
+              "id": "sidebar-lists",
+              "type": "column",
+              "children": [
+                {
+                  "id": "spaces",
+                  "type": "block",
+                  "content": {
+                    "mod": "sleek-workspaces"
+                  },
+                  "size": {
+                    "weight": 1
+                  },
+                  "min": 90
+                }
+              ]
+            },
+            {
+              "id": "sidebar-footer",
+              "type": "block",
+              "content": {
+                "mod": "sleek-chrome",
+                "props": {
+                  "footer": true
+                }
+              },
+              "size": {
+                "px": 40
+              }
+            }
+          ],
+          "size": {
+            "px": 300
+          },
+          "min": 44,
+          "max": 480,
+          "background": "#16141fb3",
+          "resizable": false,
+          "radius": 10,
+          "border": {
+            "width": 1,
+            "color": "border"
+          }
+        },
+        {
+          "id": "work",
+          "type": "column",
+          "children": [
+            {
+              "id": "tabs",
+              "type": "block",
+              "content": {
+                "mod": "sleek-tabs"
+              },
+              "size": {
+                "px": 40
+              },
+              "window_drag": true,
+              "background": "#16141fb3",
+              "radius": 10,
+              "border": {
+                "width": 1,
+                "color": "border"
+              }
+            },
+            {
+              "id": "work-body",
+              "type": "row",
+              "children": [
+                {
+                  "id": "main",
+                  "type": "block",
+                  "content": {
+                    "tab": "active",
+                    "pane": {
+                      "background": "#191724cc",
+                      "focus": {
+                        "width": 1,
+                        "color": "border"
+                      },
+                      "radius": 10,
+                      "gap": 5,
+                      "lone": true,
+                      "border": {
+                        "width": 1,
+                        "color": "border"
+                      },
+                      "header": {
+                        "content": {
+                          "mod": "sleek-pane"
+                        },
+                        "reveal": "always",
+                        "height": 30,
+                        "position": "top"
+                      }
+                    }
+                  }
+                },
+                {
+                  "id": "panel",
+                  "type": "column",
+                  "children": [
+                    {
+                      "id": "panel-body",
+                      "type": "stack",
+                      "children": [
+                        {
+                          "id": "files",
+                          "type": "block",
+                          "content": {
+                            "mod": "sleek-files"
+                          }
+                        },
+                        {
+                          "id": "changes",
+                          "type": "block",
+                          "content": {
+                            "mod": "better-changes"
+                          }
+                        }
+                      ],
+                      "active": "files"
+                    }
+                  ],
+                  "size": {
+                    "px": 368
+                  },
+                  "min": 280,
+                  "max": 900,
+                  "hidden": true,
+                  "background": "#16141fb3",
+                  "radius": 10,
+                  "border": {
+                    "width": 1,
+                    "color": "border"
+                  }
+                },
+                {
+                  "id": "herdsidian",
+                  "type": "block",
+                  "content": {
+                    "mod": "herdsidian",
+                    "props": {
+                      "notesOnly": true,
+                      "vault": "~/Documents/Roberto/obsidian"
+                    }
+                  },
+                  "size": {
+                    "px": 380
+                  },
+                  "min": 44,
+                  "max": 720,
+                  "hidden": true,
+                  "background": "#16141fb3",
+                  "radius": 10,
+                  "border": {
+                    "width": 1,
+                    "color": "border"
+                  }
+                }
+              ],
+              "padding": [
+                5,
+                0
+              ],
+              "gap": 5
+            },
+            {
+              "id": "status",
+              "type": "block",
+              "content": {
+                "mod": "sleek-status"
+              },
+              "size": {
+                "px": 32
+              },
+              "background": "#16141fb3",
+              "radius": 10,
+              "border": {
+                "width": 1,
+                "color": "border"
+              }
+            }
+          ],
+          "resizable": false,
+          "gap": 0
+        }
+      ],
+      "background": "#0000008c"
+    }
+  ],
+  "background": {
+    "image": "backgrounds/bapet-sky.jpg",
+    "fit": "cover"
+  },
+  "terminal_padding": [
+    14,
+    12
+  ],
+  "titlebar": "none",
+  "padding": 0,
+  "gap": 0,
+  "colors": {
+    "dim": "#8a86a3",
+    "muted": "#aaa6c3",
+    "accent": "#eb6f92"
+  },
+  "theme": "rose-pine",
+  "terminal_opacity": 0,
+  "preview": "layouts/glass-islands.png"
+}

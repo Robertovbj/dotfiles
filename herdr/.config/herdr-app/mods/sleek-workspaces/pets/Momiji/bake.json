@@ -1,0 +1,31 @@
+{
+  "mag": 1,
+  "aim_yaw": 90,
+  "reload_yaw": 45,
+  "anims": {
+    "start": [
+      "Normal_Attack_Start"
+    ],
+    "shot": [
+      "Normal_Attack_Ing"
+    ],
+    "reload": [
+      "Normal_Reload"
+    ],
+    "blocked": [
+      "Vital_Panic",
+      "Cafe_Reaction",
+      "Normal_Callsign"
+    ],
+    "done": [
+      "Victory_Start",
+      "Victory_End",
+      "Cafe_Reaction"
+    ],
+    "idle": [
+      "Cafe_Idle",
+      "Normal_Idle",
+      "Formation_Idle"
+    ]
+  }
+}

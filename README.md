@@ -72,3 +72,13 @@
     ```
 
 6. [Opcional] (Corrigir cedilha)[https://www.reddit.com/r/archlinux/comments/1fceq7p/cedilla_not_working_as_intended/]
+
+7. Herdr (layout `glass-islands`, mods, pets e atalhos) — **não usa stow**
+    ```bash
+    ./herdr.sh install   # dotfiles -> ~/.config/herdr-app (abra o Herdr uma vez antes)
+    ./herdr.sh save      # ~/.config/herdr-app -> dotfiles, depois de mudar algo no Herdr
+    ./herdr.sh diff      # o que mudou entre os dois
+    ```
+    O Herdr não recarrega arquivos via symlink e regrava alguns sozinho, por isso fica copiado.
+    Os pets usam os modelos do BApet: para criar novos, veja
+    `herdr/.config/herdr-app/mods/sleek-workspaces/pets/AGENTS.md`.

@@ -1,0 +1,111 @@
+// The mod's pure logic, with no Herdr or GPUI imports so it can be tested with node.
+
+export const HIDDEN = new Set([".obsidian", ".git", ".trash", "node_modules"]);
+
+// A note's name: its file name without .md.
+export const base = (path) => path.split("/").pop().replace(/\.md$/i, "");
+
+// The last part of a path, and what is before it ("" when there is nothing before it).
+export const leafOf = (path) => path.slice(path.lastIndexOf("/") + 1);
+export const dirOf = (path) => (path.includes("/") ? path.slice(0, path.lastIndexOf("/")) : "");
+
+// True when a changed path is inside a folder the panel never shows (.obsidian, .git, ...).
+export const hidden = (vault, path) => path.slice(vault.length + 1).split("/").some((part) => HIDDEN.has(part));
+
+// The one wikilink pattern: groups are embed "!", target, #heading, alias. The graph reads links with it too.
+export const WIKILINK = /(!?)\[\[([^\]|#]+)(#[^\]|]*)?(?:\|([^\]]*))?\]\]/g;
+
+// True for an embed of a file that is not a note (![[shot.png]]); `name` is the trimmed target.
+export const isFileEmbed = (embed, name) => Boolean(embed) && /\.(?!md$)\w+$/i.test(name);
+
+// Applies `fn` to the text outside code (fenced blocks and inline spans) and keeps code as written.
+// fn(prose, afterFence): afterFence is true when a fenced block came before this prose, which ends a paragraph.
+export function mapProse(text, fn) {
+  const parts = [];
+  let prose = "";
+  let fence = null; // { ch, len } while inside a fenced block
+  let afterFence = false;
+  const flush = () => {
+    if (prose) {
+      parts.push(fn(prose, afterFence));
+      afterFence = false;
+    }
+    prose = "";
+  };
+  for (const line of text.match(/[^\n]*\n|[^\n]+/g) ?? []) {
+    if (fence) {
+      const close = line.match(/^ {0,3}(`+|~+)[ \t]*\r?\n?$/);
+      if (close && close[1][0] === fence.ch && close[1].length >= fence.len) fence = null;
+      parts.push(line);
+      continue;
+    }
+    // A backtick fence's info string can't hold a backtick: "```npm i``` x" is a code span, not a fence.
+    const open = line.match(/^ {0,3}(`{3,}(?![^\n]*`)|~{3,})/);
+    if (open) {
+      fence = { ch: open[1][0], len: open[1].length };
+      flush();
+      afterFence = true;
+      parts.push(line);
+      continue;
+    }
+    // Inline spans: a run of n backticks up to the next run of exactly n.
+    let i = 0;
+    while (i < line.length) {
+      const start = line.indexOf("`", i);
+      if (start < 0) break;
+      let n = 1;
+      while (line[start + n] === "`") n++;
+      let end = start + n, found = -1;
+      while ((end = line.indexOf("`", end)) >= 0) {
+        let m = 1;
+        while (line[end + m] === "`") m++;
+        if (m === n) { found = end; break; }
+        end += m;
+      }
+      if (found < 0) { prose += line.slice(i, start + n); i = start + n; continue; }
+      prose += line.slice(i, start);
+      flush();
+      parts.push(line.slice(start, found + n));
+      i = found + n;
+    }
+    prose += line.slice(i);
+  }
+  flush();
+  return parts.join("");
+}
+
+// The frontmatter block at the top of a note; group 1 is the YAML between the fences.
+export const FRONTMATTER = /^---\r?\n([\s\S]*?)\r?\n---(?:\r?\n|$)/;
+
+// Names compare equal when they differ only in case or Unicode form, as on macOS.
+export const normKey = (s) => s.normalize("NFC").toLowerCase();
+
+// Obsidian Markdown to plain Markdown: frontmatter as a code block, wikilinks as note: links.
+// Embeds of non-notes (![[shot.png]]) can't be shown: they stay as their file name.
+// Code stays as written. ( and ) are escaped in the link so a Markdown parser reads it whole.
+export function render(text) {
+  const front = text.match(FRONTMATTER);
+  const body = front ? text.slice(front[0].length) : text;
+  const linked = mapProse(body, (prose) => prose.replace(WIKILINK, (_m, embed, target, heading, alias) =>
+    isFileEmbed(embed, target.trim()) ? `\`${target.trim()}\``
+      : `[${alias || target + (heading ?? "")}](note:${encodeURIComponent(target.trim()).replace(/\(/g, "%28").replace(/\)/g, "%29")})`));
+  return (front ? "```yaml\n" + front[1] + "\n```\n\n" : "") + linked;
+}
+
+// The link target a note: link names, without its #heading; "" when there's none.
+export function linkTarget(url) {
+  let target = url.replace(/^note:/, "");
+  try { target = decodeURIComponent(target); } catch {}
+  return target.replace(/#.*$/, "");
+}
+
+// The note a link from `from` points to, like Obsidian: the same folder first, then a
+// path ending in it, then any note with that name. `all`: every note, relative paths.
+export function resolve(all, from, target) {
+  const dir = from.includes("/") ? from.slice(0, from.lastIndexOf("/") + 1).toLowerCase() : "";
+  const want = target.toLowerCase().replace(/\.md$/, "");
+  return all.find((p) => p.toLowerCase() === `${dir}${want}.md`)
+    ?? all.find((p) => p.toLowerCase().replace(/\.md$/, "").endsWith(`/${want}`) || p.toLowerCase() === `${want}.md`)
+    ?? all.find((p) => base(p).toLowerCase() === base(want))
+    ?? null;
+}

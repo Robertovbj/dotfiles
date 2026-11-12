@@ -1,0 +1,16 @@
+{
+  "comment": "Which BApet character each agent gets. Sprites live in pets/<Name>/ (bake them with ~/.config/herdr-app/tools/bake-pet.py <Name>). byApp picks by agent (claude-code, codex, opencode, ...); otherwise one from pool, fixed per agent.",
+  "pool": [
+    "Mika",
+    "Kei",
+    "Rena",
+    "Hikari",
+    "Hifumi",
+    "Momiji",
+    "Chise",
+    "Yuuka",
+    "Mutsuki"
+  ],
+  "byApp": {},
+  "size": 100
+}

@@ -42,13 +42,11 @@
         screen \
         starship \  # Customização de terminal
         stow \  # Para dotfiles
-        task taskwarrior-tui \  # Tarefas
         tree-sitter-cli \
         visual-studio-code-bin \
         wine \
         zoxide \
-        fcitx5 fcitx5-qt fcitx5-gtk fcitx5-configtool \
-        rofi rofiemoji  # Emojis 
+        fcitx5 fcitx5-qt fcitx5-gtk fcitx5-configtool
     #   pidgin pidgin-indicator pidgin-libnotify \  # Pidgin
     #   cups system-config-printer ghostscript \  # Impressora
     ```

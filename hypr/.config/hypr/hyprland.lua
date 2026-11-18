@@ -30,3 +30,19 @@ require("default.hypr.toggles")
 
 -- Add any other personal Hyprland configuration below.
 -- o.window("qemu", { workspace = "5" })
+
+-- BApet: regras das janelas dos pets. Só carrega se o BApet estiver instalado,
+-- para o config não quebrar numa máquina sem ele.
+local function bapet_instalado()
+  local dirs = { (os.getenv("HOME") or "") .. "/.local/bin" }
+  for dir in (os.getenv("PATH") or ""):gmatch("[^:]+") do dirs[#dirs + 1] = dir end
+  for _, dir in ipairs(dirs) do
+    local f = io.open(dir .. "/bapet-ghost", "r")
+    if f then f:close() return true end
+  end
+  return false
+end
+
+if bapet_instalado() then
+  pcall(require, "hypr.bapet")
+end

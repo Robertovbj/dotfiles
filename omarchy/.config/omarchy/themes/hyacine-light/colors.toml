@@ -1,0 +1,42 @@
+mode = "light"
+
+# Rosa do cabelo no acento e na seleção; lavanda e pervinca do wallpaper nos painéis e no
+# texto. O muted (comentários, placeholders, ícones inativos) é um pervinca acinzentado.
+accent = "#bb4e80"
+selection = "#ffccdf"
+muted = "#6c7198"
+
+# Borda ativa em degradê: rosa do cabelo para o pervinca do wallpaper.
+hyprland_active_border = "rgba(ea87b0ee) rgba(8998e9ee) 45deg"
+
+background = "#faf4fe"
+dark_background = "#efe9fd"
+darker_background = "#e2dffd"
+lighter_background = "#f0f0fe"
+
+foreground = "#242a50"
+dark_foreground = "#5b6085"
+light_foreground = "#3d446d"
+bright_foreground = "#131736"
+
+red = "#b4505a"
+yellow = "#857501"
+orange = "#ae5b1b"
+green = "#388843"
+cyan = "#088586"
+blue = "#0480a8"
+magenta = "#915aa8"
+brown = "#775540"
+
+bright_red = "#c26169"
+bright_yellow = "#958408"
+bright_green = "#4b9754"
+bright_cyan = "#079697"
+bright_blue = "#0a8fbc"
+bright_magenta = "#9f6ab6"
+
+# Menta das pontas do cabelo da Hyacine, para os ícones dos apps.
+icon_mark = "#12a7a7"
+
+# Menta das pontas do cabelo nas bordas das janelas inativas.
+hyprland_inactive_border = "rgba(8fd6cfcc)"

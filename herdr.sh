@@ -28,6 +28,7 @@ ITEMS=(
   themes/omarchy.json
   backgrounds/bapet-sky.jpg
   tools/bake-pet.py
+  tools/omarchy-colors.py
   licenses/
   mods/sleek-chrome/
   mods/sleek-workspaces/
@@ -75,6 +76,9 @@ case "${1:-}" in
       cp -a "$LIVE/${item%/}" "$backup/${item%/}"
     done
     copy "$REPO" "$LIVE"
+    # As cores do layout acompanham o tema do Omarchy (hook theme-set.d/30-herdr-glass, no
+    # pacote omarchy). Pinta já com o tema atual, em vez das cores de quando foi salvo.
+    python3 "$LIVE/tools/omarchy-colors.py" || true
     echo "Instalado em $LIVE (backup do anterior: $backup)"
     echo "No Herdr: ctrl-shift-l até o layout 'glass-islands', ou: herdr-app do layout.switch --name glass-islands"
     ;;

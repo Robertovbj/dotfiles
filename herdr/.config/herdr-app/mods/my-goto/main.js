@@ -50,7 +50,6 @@ function translucent(color, alpha) {
 }
 
 // Space colors, the same way the sidebar picks them (shared "space.colors").
-const MARK = { ansi6: "#22a99a", ansi3: "#e3814f", ansi4: "#5b8def", ansi5: "#8b7cf6", ansi2: "#3fae6a", ansi1: "#d9649a" };
 const PROJECT_COLORS = ["ansi6", "ansi3", "ansi4", "ansi5", "ansi2", "ansi1"];
 function spaceColors() {
   const ids = new Set(spaces().map((p) => p.id));
@@ -68,7 +67,7 @@ function spaceColors() {
 function spaceColor(t, p) {
   if (p.name === "~") return t.dim;
   const c = spaceColors()[p.id] ?? PROJECT_COLORS[0];
-  return c.startsWith("#") ? c : (MARK[c] ?? t[c]);
+  return c.startsWith("#") ? c : (t[c] ?? t.accent);
 }
 
 // Personal: space badges. Theme colors (a stored name like "ansi6" is read from the

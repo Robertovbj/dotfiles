@@ -50,10 +50,6 @@ const base = (path) => path.replace(/\/+$/, "").split("/").pop();
 // for this often, in repos the list shows, while the window is in front.
 const FALLBACK = 60000;
 
-// What a stored color name looks like on an avatar (the same in every mod
-// that draws space avatars): one strong color per hue, light and dark alike.
-const MARK = { ansi6: "#22a99a", ansi3: "#e3814f", ansi4: "#5b8def", ansi5: "#8b7cf6", ansi2: "#3fae6a", ansi1: "#d9649a" };
-
 // Personal: space badges. Theme colors (a stored name like "ansi6" is read from the
 // theme, so Rosé Pine shows love/gold/rose/pine/foam/iris), a soft tinted tile with a
 // colored letter, filled solid for the shown space; the home space (~) gets a house.

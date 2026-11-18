@@ -59,7 +59,7 @@
           },
           "min": 44,
           "max": 480,
-          "background": "#16141fb3",
+          "background": "#0a1025b3",
           "resizable": false,
           "radius": 10,
           "border": {
@@ -81,7 +81,7 @@
                 "px": 40
               },
               "window_drag": true,
-              "background": "#16141fb3",
+              "background": "#0a1025b3",
               "radius": 10,
               "border": {
                 "width": 1,
@@ -98,7 +98,7 @@
                   "content": {
                     "tab": "active",
                     "pane": {
-                      "background": "#191724cc",
+                      "background": "#0d142ccc",
                       "focus": {
                         "width": 1,
                         "color": "border"
@@ -153,7 +153,7 @@
                   "min": 280,
                   "max": 900,
                   "hidden": true,
-                  "background": "#16141fb3",
+                  "background": "#0a1025b3",
                   "radius": 10,
                   "border": {
                     "width": 1,
@@ -176,7 +176,7 @@
                   "min": 44,
                   "max": 720,
                   "hidden": true,
-                  "background": "#16141fb3",
+                  "background": "#0a1025b3",
                   "radius": 10,
                   "border": {
                     "width": 1,
@@ -199,7 +199,7 @@
               "size": {
                 "px": 32
               },
-              "background": "#16141fb3",
+              "background": "#0a1025b3",
               "radius": 10,
               "border": {
                 "width": 1,
@@ -225,12 +225,7 @@
   "titlebar": "none",
   "padding": 0,
   "gap": 0,
-  "colors": {
-    "dim": "#8a86a3",
-    "muted": "#aaa6c3",
-    "accent": "#eb6f92"
-  },
-  "theme": "rose-pine",
+  "theme": "omarchy",
   "terminal_opacity": 0,
   "preview": "layouts/glass-islands.png"
 }

@@ -43,3 +43,7 @@
 [credential "http://192.168.0.200:3000"]
 	helper = 
 	helper = !tea login helper
+[credential "http://192.168.55.200:3000"]
+	useHttpPath = true
+	helper = 
+	helper = !GITEA_CLI_CONFIG_DIR=/home/administrador/.config/gitea-cli /usr/bin/gt auth git-credential --host http://192.168.55.200:3000

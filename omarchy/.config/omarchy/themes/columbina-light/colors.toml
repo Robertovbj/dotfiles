@@ -1,0 +1,34 @@
+mode = "light"
+
+accent = "#4656a2"
+selection = "#c5cbf5"
+muted = "#acb7ed"
+
+background = "#f0f3fe"
+dark_background = "#e3e9fd"
+darker_background = "#d7defb"
+lighter_background = "#e8ecfe"
+
+foreground = "#1e3069"
+dark_foreground = "#6272a4"
+light_foreground = "#374789"
+bright_foreground = "#132252"
+
+red = "#9f495a"
+yellow = "#856305"
+orange = "#9d5126"
+green = "#0a7d51"
+cyan = "#047689"
+blue = "#5363ab"
+magenta = "#7d549a"
+brown = "#6c4938"
+
+bright_red = "#ae5a68"
+bright_yellow = "#967116"
+bright_green = "#2d8b61"
+bright_cyan = "#04869c"
+bright_blue = "#6272b8"
+bright_magenta = "#8b64a8"
+
+# Azul-pervinca do namecard da Columbina, o wallpaper do tema.
+icon_mark = "#556cba"

@@ -1,0 +1,6 @@
+#!/bin/bash
+# Repaint Herdr's glass-islands layout (translucent cards, veil, accent) with the new theme.
+# The script lives with the Herdr config: ~/.config/herdr-app/tools/omarchy-colors.py
+script="${HERDR_APP_HOME:-$HOME/.config/herdr-app}/tools/omarchy-colors.py"
+[[ -f $script ]] || exit 0
+python3 "$script"

@@ -1,0 +1,73 @@
+#!/bin/bash
+# Leva o tema do VS Code que o Omarchy aplicou no perfil padrão para todos os
+# perfis do VS Code. O omarchy-theme-set-vscode só edita o settings.json do
+# perfil padrão; cada perfil tem o seu próprio settings.json e a sua própria
+# lista de extensões.
+#
+# Roda depois do omarchy-theme-set-vscode (hooks rodam no fim do theme set).
+# Backup dos arquivos originais: ~/.config/Code/User/profiles-backup-omarchy-hook/
+
+USER_DIR="$HOME/.config/Code/User"
+DEFAULT_SETTINGS="$USER_DIR/settings.json"
+DEFAULT_EXTENSIONS="$HOME/.vscode/extensions/extensions.json"
+STORAGE="$USER_DIR/globalStorage/storage.json"
+DESCRIPTOR="$HOME/.local/state/omarchy/current/theme/vscode.json"
+
+[[ -f $DEFAULT_SETTINGS && -f $STORAGE ]] || exit 0
+command -v jq >/dev/null || exit 0
+
+# Tema que o Omarchy acabou de gravar no perfil padrão.
+theme=$(grep -oP '"workbench\.colorTheme"\s*:\s*"\K[^"]*' "$DEFAULT_SETTINGS" | head -1)
+[[ -n $theme && $theme =~ ^[^[:cntrl:]\"\\]+$ ]] || exit 0
+
+# Extensão que fornece esse tema: a gerada pelo Omarchy ("Omarchy") ou a que o
+# vscode.json do tema indica (temas de fábrica, como o Catppuccin).
+ext_id=""
+if [[ $theme == "Omarchy" ]]; then
+  ext_id="local.omarchy-theme"
+elif [[ -f $DESCRIPTOR ]]; then
+  ext_id=$(jq -r '.extension // empty' "$DESCRIPTOR")
+fi
+ext_id=${ext_id,,}
+
+escaped=${theme//&/\\&}
+escaped=${escaped//|/\\|}
+
+# Perfis criados pelo usuário que não compartilham as configurações do padrão.
+jq -r '.userDataProfiles[]?
+  | select(.location | startswith("builtin/") | not)
+  | select((.useDefaultFlags.settings // false) | not)
+  | .location' "$STORAGE" | while IFS= read -r location; do
+  profile_dir="$USER_DIR/profiles/$location"
+  [[ -d $profile_dir ]] || continue
+
+  settings="$profile_dir/settings.json"
+  [[ -f $settings ]] || printf '{\n}\n' >"$settings"
+
+  # settings.json é JSONC (aceita comentários e vírgula sobrando), então é
+  # editado no lugar, do mesmo jeito que o Omarchy faz no perfil padrão.
+  if ! grep -q '"workbench.colorTheme"' "$settings"; then
+    sed -i --follow-symlinks -E '0,/\{/{s/\{/{\n    "workbench.colorTheme": "",/}' "$settings"
+  fi
+  sed -i --follow-symlinks -E \
+    "s|(\"workbench.colorTheme\"[[:space:]]*:[[:space:]]*\")[^\"]*(\")|\1$escaped\2|" \
+    "$settings"
+
+  # Registra no perfil a extensão do tema, copiando a entrada do perfil padrão.
+  [[ -n $ext_id && -f $DEFAULT_EXTENSIONS ]] || continue
+  entry=$(jq -c --arg id "$ext_id" \
+    '[.[] | select((.identifier.id | ascii_downcase) == $id)] | last // empty' \
+    "$DEFAULT_EXTENSIONS")
+  [[ -n $entry ]] || continue
+
+  extensions="$profile_dir/extensions.json"
+  [[ -f $extensions ]] || printf '[]\n' >"$extensions"
+  tmp=$(mktemp)
+  if jq --argjson entry "$entry" --arg id "$ext_id" \
+    'map(select((.identifier.id | ascii_downcase) != $id)) + [$entry]' \
+    "$extensions" >"$tmp"; then
+    mv "$tmp" "$extensions"
+  else
+    rm -f "$tmp"
+  fi
+done

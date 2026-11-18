@@ -51,14 +51,31 @@
     #   cups system-config-printer ghostscript \  # Impressora
     ```
 
-3. Fazer o stow (`stow -t /home/$USER`) dos seguintes :
-    - atuin
-    - environment
-    - fish
-    - hyprland
-    - kitty
-    - starship
-    - waybar
+3. Fazer o stow dos pacotes
+    ```bash
+    cd ~/dotfiles
+    stow -t ~ atuin environment fish git hypr kitty nvim omarchy starship
+    ```
+    - atuin: config e temas do histórico
+    - environment: variáveis do `~/.config/environment.d` (Ruby, Firefox no Wayland, Superwhisper)
+    - fish: config, abreviações, funções e completions
+    - git: `.gitconfig`
+    - hypr: Hyprland (atalhos, monitores, aparência, regras do BApet quando ele está instalado)
+    - kitty: config e sessões
+    - nvim: LazyVim. O `lua/plugins/theme.lua` é criado pelo Omarchy e fica fora do dotfiles
+    - omarchy: barra (`shell.json`), menu, hooks de troca de tema, templates e temas próprios (Columbina)
+    - starship: prompt
+
+    Numa instalação nova do Omarchy, alguns desses arquivos já existem e o stow recusa. Para ficar com os do dotfiles:
+    ```bash
+    stow --adopt -t ~ <pacote>   # move o arquivo existente para o dotfiles e cria o link
+    git checkout -- .            # volta o dotfiles para a versão commitada
+    ```
+
+    O Omarchy regrava o `shell.json` quando a barra muda (`omarchy bar`, menu), e o link vira arquivo comum. Para trazer a mudança de volta:
+    ```bash
+    stow --adopt -t ~ omarchy    # depois é só commitar
+    ```
 
 4. Mudar o shell para fish com `chsh -s /usr/bin/fish` e para o sudo `sudo chsh -s /bin/fish`
 

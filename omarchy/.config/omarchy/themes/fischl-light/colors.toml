@@ -1,0 +1,36 @@
+mode = "light"
+
+# Lavanda e violeta tirados do wallpaper; violeta vivo no acento e o malva do cabelo nos
+# ícones. O muted (comentários, placeholders, ícones inativos) é um violeta acinzentado.
+accent = "#724cce"
+selection = "#dcc5f9"
+muted = "#7367a2"
+
+background = "#f9f5ff"
+dark_background = "#f1e8fe"
+darker_background = "#e8dafd"
+lighter_background = "#f2edfe"
+
+foreground = "#292163"
+dark_foreground = "#615999"
+light_foreground = "#433a85"
+bright_foreground = "#171042"
+
+red = "#994354"
+yellow = "#7e5d05"
+orange = "#964c20"
+green = "#00764c"
+cyan = "#066f82"
+blue = "#5d58a2"
+magenta = "#774e94"
+brown = "#664432"
+
+bright_red = "#a75463"
+bright_yellow = "#906b0a"
+bright_green = "#25855b"
+bright_cyan = "#067f94"
+bright_blue = "#6b67af"
+bright_magenta = "#855ea1"
+
+# Malva do cabelo da Fischl no wallpaper, para os ícones dos apps.
+icon_mark = "#ab6da6"

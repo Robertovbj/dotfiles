@@ -63,7 +63,7 @@
     - hypr: Hyprland (atalhos, monitores, aparência, regras do BApet quando ele está instalado)
     - kitty: config e sessões
     - nvim: LazyVim. O `lua/plugins/theme.lua` é criado pelo Omarchy e fica fora do dotfiles
-    - omarchy: barra (`shell.json`), menu, hooks de troca de tema, templates e temas próprios (Columbina e Hyacine Light)
+    - omarchy: barra (`shell.json`), menu, hooks de troca de tema, templates e temas próprios (Columbina, Fischl e Hyacine Light)
     - starship: prompt
 
     Numa instalação nova do Omarchy, alguns desses arquivos já existem e o stow recusa. Para ficar com os do dotfiles:

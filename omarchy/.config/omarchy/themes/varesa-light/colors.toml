@@ -1,0 +1,39 @@
+mode = "light"
+
+# Rosa e pêssego tirados do namecard da Varesa; malva no texto, rosa dos contornos no acento
+# e menta na borda e nos ícones. O muted é um malva acinzentado.
+accent = "#bc4754"
+selection = "#fac1c2"
+muted = "#916369"
+
+# Borda ativa em degradê: rosa dos contornos para a menta das mechas.
+hyprland_active_border = "rgba(d3646dee) rgba(5db7a8ee) 45deg"
+
+background = "#fef3f3"
+dark_background = "#ffe5e5"
+darker_background = "#fed4d4"
+lighter_background = "#dff6f1"
+
+foreground = "#48242b"
+dark_foreground = "#81555d"
+light_foreground = "#663c44"
+bright_foreground = "#2e1319"
+
+red = "#ad4a53"
+yellow = "#856c02"
+orange = "#a85418"
+green = "#4b7f28"
+cyan = "#077f7a"
+blue = "#5168ba"
+magenta = "#8f539d"
+brown = "#714f3c"
+
+bright_red = "#bc5b63"
+bright_yellow = "#967a07"
+bright_green = "#5b8d3c"
+bright_cyan = "#05908b"
+bright_blue = "#6078c7"
+bright_magenta = "#9d63ac"
+
+# Menta das mechas da Varesa no namecard, para os ícones dos apps.
+icon_mark = "#3b9889"

@@ -1,0 +1,39 @@
+mode = "light"
+
+# Branco do cabelo e azul do oceano tirados do wallpaper; índigo no texto, rosa dos detalhes no
+# acento, amarelo dos detalhes na seleção e rosa nos ícones. O muted é um índigo acinzentado.
+accent = "#da5c8f"
+selection = "#f6e8a1"
+muted = "#5d70a1"
+
+# Borda ativa em degradê: azul das ondas, rosa e amarelo dos detalhes da Mualani.
+hyprland_active_border = "rgba(4386deee) rgba(da5c8fee) rgba(e8be12ee) 45deg"
+
+background = "#f4f7fe"
+dark_background = "#e2eeff"
+darker_background = "#cfe3fe"
+lighter_background = "#faf4d6"
+
+foreground = "#1b2b62"
+dark_foreground = "#4d6197"
+light_foreground = "#31447d"
+bright_foreground = "#0d1842"
+
+red = "#a8465a"
+yellow = "#7b6c01"
+orange = "#a4520d"
+green = "#078053"
+cyan = "#037a85"
+blue = "#2b6db4"
+magenta = "#9e497d"
+brown = "#6e4d38"
+
+bright_red = "#b75769"
+bright_yellow = "#8b7b06"
+bright_green = "#179060"
+bright_cyan = "#018b97"
+bright_blue = "#3e7dc2"
+bright_magenta = "#ad598b"
+
+# Rosa dos detalhes da Mualani, para os ícones dos apps.
+icon_mark = "#da5c8f"

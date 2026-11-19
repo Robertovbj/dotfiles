@@ -1,0 +1,39 @@
+mode = "dark"
+
+# Azul do oceano e índigo do céu tirados do wallpaper; rosa dos detalhes no acento, amarelo
+# na seleção e nos ícones e azul das ondas na borda. O muted é um azul acinzentado.
+accent = "#da5c8f"
+selection = "#6f5803"
+muted = "#7a8cb1"
+
+# Borda ativa em degradê: azul das ondas, rosa e amarelo dos detalhes da Mualani.
+hyprland_active_border = "rgba(69aefaee) rgba(da5c8fee) rgba(fcd428ee) 45deg"
+
+background = "#071636"
+dark_background = "#05122e"
+darker_background = "#030d25"
+lighter_background = "#122750"
+
+foreground = "#ecedfb"
+dark_foreground = "#a3adcb"
+light_foreground = "#ced7ef"
+bright_foreground = "#f7f8fe"
+
+red = "#ff9fa5"
+yellow = "#ecd968"
+orange = "#fca85c"
+green = "#77e1a1"
+cyan = "#2be1ed"
+blue = "#8dc2ff"
+magenta = "#fb99d2"
+brown = "#a28267"
+
+bright_red = "#febec0"
+bright_yellow = "#f8ea96"
+bright_green = "#a1f0bd"
+bright_cyan = "#7df0f9"
+bright_blue = "#b1d5fe"
+bright_magenta = "#ffb8df"
+
+# Amarelo dos detalhes da Mualani, para os ícones dos apps.
+icon_mark = "#fcd428"

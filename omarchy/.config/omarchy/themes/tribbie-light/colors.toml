@@ -1,0 +1,39 @@
+mode = "light"
+
+# Creme e pêssego das nuvens do wallpaper; índigo do céu no texto, vermelho do cabelo no
+# acento e dourado das estrelas nos ícones. O muted é um lavanda acinzentado.
+accent = "#bd413f"
+selection = "#f8ccbc"
+muted = "#716b98"
+
+# Borda ativa em degradê: vermelho do cabelo para o dourado das estrelas.
+hyprland_active_border = "rgba(c74b47ee) rgba(eea743ee) 45deg"
+
+background = "#fef5ee"
+dark_background = "#fee8da"
+darker_background = "#ffdac7"
+lighter_background = "#f2edfe"
+
+foreground = "#262659"
+dark_foreground = "#615c8e"
+light_foreground = "#433f76"
+bright_foreground = "#15153a"
+
+red = "#af4a3e"
+yellow = "#8c6806"
+orange = "#a35903"
+green = "#43802a"
+cyan = "#01807b"
+blue = "#6860b9"
+magenta = "#a34a80"
+brown = "#6f5138"
+
+bright_red = "#be5b4f"
+bright_yellow = "#9f7604"
+bright_green = "#548f3e"
+bright_cyan = "#0c908a"
+bright_blue = "#7670c7"
+bright_magenta = "#b25a8f"
+
+# Dourado das estrelas do wallpaper, para os ícones dos apps.
+icon_mark = "#ce871b"

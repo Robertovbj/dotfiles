@@ -1,0 +1,39 @@
+mode = "dark"
+
+# Céu índigo da noite do wallpaper; vermelho do cabelo no acento, dourado das estrelas nos
+# ícones e creme da lua no texto. O muted (comentários, placeholders) é um lavanda acinzentado.
+accent = "#ed756e"
+selection = "#483f72"
+muted = "#8e82a6"
+
+# Borda ativa em degradê: vermelho do cabelo para o dourado das estrelas.
+hyprland_active_border = "rgba(e66e68ee) rgba(ffca85ee) 45deg"
+
+background = "#141333"
+dark_background = "#100f2b"
+darker_background = "#0b0a23"
+lighter_background = "#262349"
+
+foreground = "#fae8d7"
+dark_foreground = "#c2a398"
+light_foreground = "#eacebc"
+bright_foreground = "#fff5ec"
+
+red = "#fda295"
+yellow = "#fad280"
+orange = "#f3ac74"
+green = "#a4d992"
+cyan = "#64ded7"
+blue = "#b6b4fe"
+magenta = "#f1a1ce"
+brown = "#a38268"
+
+bright_red = "#febfb5"
+bright_yellow = "#ffe5b1"
+bright_green = "#bee9af"
+bright_cyan = "#91eee8"
+bright_blue = "#cbcbfe"
+bright_magenta = "#fdbadf"
+
+# Dourado das estrelas do wallpaper, para os ícones dos apps.
+icon_mark = "#ffca85"
